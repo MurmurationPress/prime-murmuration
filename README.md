@@ -10,6 +10,7 @@ This public repository is a deployment snapshot. The canonical source is maintai
 
 - Custom domain: <https://murmuration.murmurationpress.co.uk>
 - GitHub Pages fallback: <https://murmurationpress.github.io/prime-murmuration/>
+- Ghost wrapper: <https://murmurationpress.co.uk/murmuration/>
 
 DNS for the custom domain is managed separately from this repository.
 
@@ -70,7 +71,7 @@ Behavioural movement produces synthetic computational expenditure. That expendit
 
 ## Ghost integration
 
-The deployed simulation can be embedded in a Ghost page using an HTML card:
+The intended Ghost wrapper is <https://murmurationpress.co.uk/murmuration/>. The deployed simulation can be embedded there using an HTML card:
 
 ```html
 <iframe
