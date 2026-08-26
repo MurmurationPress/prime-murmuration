@@ -1,0 +1,49 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out snapshot
+        uses: actions/checkout@v7
+
+      - name: Verify required deployment files
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(index.html styles.css src/main.js src/config.js vendor/p5.min.js CNAME)
+          for file in "${required[@]}"; do
+            if [[ ! -f "$file" ]]; then
+              echo "::error file=$file::Required deployment file is missing: $file"
+              exit 1
+            fi
+          done
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#03070d" />
+    <title>PRIME // Murmuration</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="app" aria-label="PRIME murmuration simulation">
+      <div id="canvas-mount"></div>
+      <button id="panel-toggle" type="button" aria-expanded="true" aria-controls="controls">Hide controls</button>
+      <aside id="controls">
+        <header>
+          <span>PRIME // FIELD 01</span>
+          <strong>MURMURATION</strong>
+        </header>
+        <label>Configuration <select id="preset"></select></label>
+        <div id="sliders"></div>
+        <label>Seed <input id="seed" type="number" step="1" /></label>
+        <div class="buttons">
+          <button id="play" type="button">Pause</button>
+          <button id="reset" type="button">Reset</button>
+          <button id="pressure" type="button">Apply pressure</button>
+        </div>
+        <details>
+          <summary>Diagnostics</summary>
+          <label><input id="show-geography" type="checkbox" /> Geography field</label>
+          <label><input id="show-population" type="checkbox" /> Population field</label>
+          <label><input id="show-thermo" type="checkbox" /> Expenditure field</label>
+          <label><input id="show-pressure" type="checkbox" /> Pressure field</label>
+        </details>
+        <div class="buttons export-buttons">
+          <button id="png" type="button">Save PNG</button>
+          <button id="frames" type="button">PNG sequence</button>
+          <button id="webm" type="button">Record WebM</button>
+        </div>
+        <p class="shortcuts">H controls · P pressure · 1–5 regions · 0 clear · R reset · Space pause</p>
+        <output id="status">Live / deterministic</output>
+      </aside>
+    </main>
+    <script src="vendor/p5.min.js"></script>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
