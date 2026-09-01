@@ -4,7 +4,7 @@ PRIME Murmuration is a deterministic, locally coordinated particle-field visuali
 
 > **One distributed entity, several temporary centres, no stable edge, and no fixed command point.**
 
-This public repository is a deployment snapshot. The canonical source is maintained in a private repository; no manuscripts, story-world notes, research, or other private material is published here.
+This public repository is a deployment snapshot. The canonical source is maintained in the private [`MurmurationPress/murmuration-animations`](https://github.com/MurmurationPress/murmuration-animations) repository under `animations/murmuration/`; no manuscripts, story-world notes, research, or other private material is published here.
 
 ## Live site
 
@@ -87,6 +87,6 @@ Ghost theme Content Security Policy settings must allow frames from `murmuration
 
 ## Publishing updates
 
-Maintainers publish from the private canonical source with its allow-list sync script. The process copies only `index.html`, `styles.css`, `src/`, `vendor/`, and reviewed deployment metadata. It never mirrors the private repository root.
+Maintainers publish from `MurmurationPress/murmuration-animations` with `scripts/publish-murmuration.sh`. The allow-list process copies only `index.html`, `styles.css`, `src/`, `vendor/`, optional `assets/`, and reviewed deployment metadata. It never mirrors the private repository root.
 
 After syncing, review `git status`, `git diff`, and the complete file list in this repository. Run the local validation suite, commit the snapshot, and push `main`. GitHub Actions then deploys the repository root to Pages.
