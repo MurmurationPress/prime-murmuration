@@ -28,9 +28,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          required=(index.html styles.css src/main.js src/config.js vendor/p5.min.js CNAME)
+          required=(index.html styles.css entry-config.js src/main.js src/config.js src/global-geography.js src/sequence.js data/world-land.js vendor/p5.min.js CNAME)
           for file in "${required[@]}"; do
-            if [[ ! -f "$file" ]]; then
+            if [[ ! -s "$file" ]]; then
               echo "::error file=$file::Required deployment file is missing: $file"
               exit 1
             fi

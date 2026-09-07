@@ -1,7 +1,7 @@
 export class PressureEvent {
   constructor(config, width, height) {
     this.config=config; this.width=width; this.height=height; this.active=null;this.automaticSuppressed=false;
-    this.x=width*.56; this.y=height*.63;
+    this.x=width*(config.pressureCentre?.[0]??.56); this.y=height*(config.pressureCentre?.[1]??.63);
   }
   settings(overrides={}) {
     return {

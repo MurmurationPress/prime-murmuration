@@ -1,4 +1,14 @@
 export const BASE_CONFIG = Object.freeze({
+  scene: 'regional',
+  boundaryMargin: 45,
+  localBoundary: false,
+  geographicForceGain: 28,
+  agentSizeScale: 1,
+  effectInterval: 1,
+  nativeAgents: false,
+  corridorWeight: .32,
+  connectivityWeight: .18,
+  reveal: false,
   width: 540,
   height: 960,
   fps: 30,
@@ -51,6 +61,23 @@ export const BASE_CONFIG = Object.freeze({
 
 export const PRESETS = {
   subtle: {},
+  'book3-global': {
+    scene: 'global', reveal: true, duration: 16, agentCount: 1800,
+    neighbourRadius: 10, separationRadius: 5, maxSpeed: .72, maxForce: .025,
+    coherenceDensityRadius: 36, cohesionWeight: .24, alignmentWeight: .9, separationWeight: 2.2,
+    interClusterMigrationWeight: .35, geographicForceGain: 10, geographyWeight: .3, populationWeight: .4,
+    infrastructureWeight: .24, connectivityWeight: .18, corridorWeight: .32,
+    seaResistance: 1.2, seaMovementCost: 1.7, localBoundary: true, boundaryMargin: 8,
+    trailLength: 9, trailOpacity: .44, densityGlowGain: .5, glowIntensity: .75,
+    agentSizeScale: .65, effectInterval: 2, nativeAgents: true,
+    showStatusInCleanMode: true, pressureStart: 9, pressureRadius: 22,
+    pressureCentre: [.5157,.4075],
+    coherenceSites: [[.27,.43],[.35,.52],[.52,.41],[.55,.5],[.79,.44],[.89,.54]],
+    pressurePresets: {
+      northAmerica: {centre:[.27,.43],radius:22}, southAmerica:{centre:[.35,.52],radius:22},
+      europe:{centre:[.52,.41],radius:20}, africa:{centre:[.55,.5],radius:24}, asia:{centre:[.79,.44],radius:24},
+    },
+  },
   dense: { agentCount: 3200, neighbourRadius: 22, coherenceDensityRadius: 62, trailLength: 7, trailOpacity: .5, densityGlowGain: 1.05, glowIntensity: 0.82, separationWeight: 1.48 },
   agitated: { maxSpeed: 2.35, maxForce: 0.075, alignmentWeight: 0.88, separationWeight: 1.65, pressureStrength: 2.6, trailLength: 6 },
   'pressure-test': { pressureStart: 2.5, pressureHoldDuration: 2.2, pressureStrength: 3.1, pressureRadius: 92, thermodynamicPressureCost: 2.2 },
